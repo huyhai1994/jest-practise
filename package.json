@@ -1,0 +1,21 @@
+{
+  "name": "practise-jest-tdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@jest/globals": "^30.0.3",
+    "jest": "^30.0.3",
+    "nodemon": "^3.1.10"
+  }
+}
