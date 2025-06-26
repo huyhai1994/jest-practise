@@ -1,17 +1,11 @@
 import {describe, expect, test} from '@jest/globals'
 
 function drawTriangle(row) {
-    let result = "";
-    if (row === 0) {
-        return result;
+    /*base: điểm dừng của bài toán...*/
+    if (row === 0 || row === null) {
+        return "";
     }
-    for (let i = 1; i <= row; i++) {
-        for (let j = 1; j <= i; j++) {
-            result += "*";
-        }
-        result += "\n";
-    }
-    return result;
+    return drawTriangle(row - 1) + "*".repeat(row) + "\n";
 }
 
 describe("draw triangle", () => {
