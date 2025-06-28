@@ -22,4 +22,7 @@ describe("'flatten' an arrays into a single array that has all the elements of t
         test('insert [[1,2],[3,4],[5,6]] return [1,2,3,4,5,6]', () => {
             expect(flattenArray([[1, 2], [3, 4], [5, 6]])).toStrictEqual([1, 2, 3, 4, 5, 6]);
         })
+        test('insert [[1,2],[3,4],[5,6],[7,8,9,10]] return [1,2,3,4,5,6,7,8,9,10]', () => {
+            expect(flattenArray([[1, 2], [3, 4], [5, 6], [7, 8, 9, 10]])).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+        })
     })
