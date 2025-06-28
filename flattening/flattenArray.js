@@ -6,7 +6,7 @@ export function flattenArray(array) {
             return newArray = [...array[0]];
         }
         if (array.length === 2) {
-            return newArray = [...array[0], ...array[1]];
+            return newArray = combine(array[0], array[1]);
         } else if (array.length === 3) {
             return newArray = [...array[0], ...array[1], ...array[2]];
         }
@@ -23,6 +23,5 @@ function reduce(array, combine, start = []) {
 }
 
 function combine(...params) {
-
-
+    return params[0].concat(params[1])
 }
