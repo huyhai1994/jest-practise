@@ -1,10 +1,6 @@
 export function flattenArray(array) {
-    let newArray = array;
-    if (!Array.isArray(newArray)) return null;
-    if (Array.isArray(newArray[0])) {
-        return reduce(newArray, combine);
-    }
-    return newArray;
+    if (!Array.isArray(array)) return null;
+    return reduce(array, combine);
 }
 
 function reduce(array, combine, start = []) {
@@ -15,6 +11,13 @@ function reduce(array, combine, start = []) {
     return current;
 }
 
-function combine(...params) {
-    return params[0].concat(params[1])
+
+function combine(accumulator, element) {
+    if (Array.isArray(element)) {
+        return reduce(element, combine, accumulator);
+    }
+    if (element === undefined) {
+        return accumulator;
+    }
+    return accumulator.concat(element);
 }
