@@ -1,23 +1,30 @@
 import {describe, expect, test} from '@jest/globals'
 
-function reString(row) {
-    /*base: điểm dừng của bài toán...*/
-    if (row === 0 || row === null || row === "" || isNaN(row) || typeof row === "boolean" ) {
+function reverseString(inputString) {
+    if (typeof inputString !== "string") {
         throw new Error("input wrong!!!");
     }
-    return row.split("").reverse().join("");
+    return inputString
+        .split("")   // -> ["a","b","c"]
+        .reverse()           // -> ["c","b","a"]
+        .join("");          // -> "cba"
 }
 
-
 describe("test reverseString", () => {
-    test("input isNaN", () => {
-        expect(() => reString(isNaN)).toThrow(new Error("input wrong!!!"));
+    test("input not string type", () => {
+        expect(() => reverseString(2)).toThrow(new Error("input wrong!!!"));
     })
     test("input boolean", () => {
-        expect(() => reString("boolean")).toThrow(new Error("input wrong!!!"));
+        expect(reverseString("boolean")).toBe("naeloob");
     })
     test("input string", () => {
-        expect(reString("LETHAO")).toBe("OAHTEL");
+        expect(reverseString("LETHAO")).toBe("OAHTEL");
+    })
+    test("input null", () => {
+        expect(() => reverseString(null)).toThrow(new Error("input wrong!!!"));
+    })
+    test("input undefined", () => {
+        expect(() => reverseString(undefined)).toThrow(new Error("input wrong!!!"));
     })
 })
 
