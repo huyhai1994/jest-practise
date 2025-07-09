@@ -60,16 +60,8 @@ function isPalindrome(inputString) {
     if (inputString.length === 2) {
         return inputString[0] === inputString[inputString.length - 1];
     }
-    if (inputString.length > 5) {
-        return inputString[1] === inputString[4] && inputString[2] === inputString[3];
-    }
-    if (inputString.length > 4) {
-        return inputString[1] === inputString[3];
-    }
-    if (inputString.length > 3) {
-        return inputString[1] === inputString[2];
-    }
-    return true;
+    return inputString[0] === inputString[inputString.length - 1]
+        && isPalindrome(inputString.slice(1, -1));
 }
 
 
