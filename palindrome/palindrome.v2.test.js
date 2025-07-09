@@ -2,7 +2,7 @@ import {describe, expect, test} from '@jest/globals'
 
 describe("test palindrome", () => {
     test("input ''", () => {
-        expect(() => isPalindrome("")).toThrow(new Error("input wrong!!!"));
+        expect(isPalindrome("")).toBe(true);
     })
     test("input null", () => {
         expect(() => isPalindrome(null)).toThrow(new Error("input wrong!!!"));
@@ -40,7 +40,6 @@ describe("test palindrome", () => {
     test("input ABCCA", () => {
         expect(isPalindrome("ABCCA")).toBe(false);
     })
-
     test("input ABCCBA", () => {
         expect(isPalindrome("ABCCBA")).toBe(true);
     })
@@ -50,16 +49,13 @@ describe("test palindrome", () => {
 })
 
 function isPalindrome(inputString) {
-    if (inputString === "" || typeof inputString !== "string") {
+    if (typeof inputString !== "string") {
         throw new Error("input wrong!!!");
     }
-    if (inputString.length === 1) {
+    if (inputString.length === 0 || inputString.length === 1) {
         return true;
     }
     inputString = inputString.toLowerCase();
-    if (inputString.length === 2) {
-        return inputString[0] === inputString[inputString.length - 1];
-    }
     return inputString[0] === inputString[inputString.length - 1]
         && isPalindrome(inputString.slice(1, -1));
 }
